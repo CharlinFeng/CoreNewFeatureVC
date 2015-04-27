@@ -23,8 +23,10 @@
 
     self.window = window;
     
+    //判断是否需要显示：（内部已经考虑版本及本地版本缓存）
     BOOL canShow = [CoreNewFeatureVC canShowNewFeature];
     
+    //测试代码，正式版本应该删除
     canShow = YES;
     
     if(canShow){
@@ -36,12 +38,13 @@
         NewFeatureModel *m3 = [NewFeatureModel model:[UIImage imageNamed:@"f3"]];
         
         window.rootViewController = [CoreNewFeatureVC newFeatureVCWithModels:@[m1,m2,m3] enterBlock:^{
-            NSLog(@"结束回调");
+            
+            NSLog(@"进入主页面");
+            [self enter];
         }];
     }else{
-        UIViewController *vc = [[UIViewController alloc] init];
-        vc.view.backgroundColor = [UIColor brownColor];
-        window.rootViewController = vc;
+       
+        [self enter];
     }
     
 
@@ -50,6 +53,15 @@
     
     return YES;
 }
+
+
+-(void)enter{
+    UIViewController *vc = [[UIViewController alloc] init];
+    vc.view.backgroundColor = [UIColor brownColor];
+    self.window.rootViewController = vc;
+}
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
