@@ -14,6 +14,10 @@
 >3.集成简单，使用方便，没有耦合度<br />
 >4.支持block回调。<br />
 
+<br /><br />
+####框架依赖：<br />
+>.CoreArchive<br />
+>.Masonry<br />
 
 <br /><br />
 ####重要代码：<br />
