@@ -6,7 +6,9 @@
 //  Copyright (c) 2015年 冯成林. All rights reserved.
 //
 
+
 #import "AppDelegate.h"
+#import "CoreNewFeatureVC.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,19 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window = window;
+    NewFeatureModel *m1 = [NewFeatureModel model:[UIImage imageNamed:@"f1"]];
+    
+    NewFeatureModel *m2 = [NewFeatureModel model:[UIImage imageNamed:@"f2"]];
+    
+    NewFeatureModel *m3 = [NewFeatureModel model:[UIImage imageNamed:@"f3"]];
+    
+    window.rootViewController = [CoreNewFeatureVC newFeatureVCWithModels:@[m1,m2,m3]];
+
+    [window makeKeyAndVisible];
+    
     return YES;
 }
 
