@@ -23,14 +23,21 @@
 
     self.window = window;
     
-    if([CoreNewFeatureVC canShowNewFeature]){
+    BOOL canShow = [CoreNewFeatureVC canShowNewFeature];
+    
+    canShow = YES;
+    
+    if(canShow){
+        
         NewFeatureModel *m1 = [NewFeatureModel model:[UIImage imageNamed:@"f1"]];
         
         NewFeatureModel *m2 = [NewFeatureModel model:[UIImage imageNamed:@"f2"]];
         
         NewFeatureModel *m3 = [NewFeatureModel model:[UIImage imageNamed:@"f3"]];
         
-        window.rootViewController = [CoreNewFeatureVC newFeatureVCWithModels:@[m1,m2,m3]];
+        window.rootViewController = [CoreNewFeatureVC newFeatureVCWithModels:@[m1,m2,m3] enterBlock:^{
+            NSLog(@"结束回调");
+        }];
     }else{
         UIViewController *vc = [[UIViewController alloc] init];
         vc.view.backgroundColor = [UIColor brownColor];

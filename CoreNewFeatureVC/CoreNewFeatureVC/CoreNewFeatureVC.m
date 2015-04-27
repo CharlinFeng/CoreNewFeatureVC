@@ -25,6 +25,7 @@ NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
 /** scrollView */
 @property (nonatomic,weak) NewFeatureScrollView *scrollView;
 
+@property (nonatomic,copy) void(^enterBlock)();
 
 @end
 
@@ -33,11 +34,14 @@ NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
 /*
  *  初始化
  */
-+(instancetype)newFeatureVCWithModels:(NSArray *)models{
++(instancetype)newFeatureVCWithModels:(NSArray *)models enterBlock:(void(^)())enterBlock{
     
     CoreNewFeatureVC *newFeatureVC = [[CoreNewFeatureVC alloc] init];
     
     newFeatureVC.models = models;
+    
+    //记录block
+    newFeatureVC.enterBlock =enterBlock;
     
     return newFeatureVC;
 }
@@ -133,7 +137,8 @@ NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
 }
 
 -(void)dismiss{
-    NSLog(@"消失");
+    
+    if(self.enterBlock != nil) _enterBlock();
 }
 
 /*

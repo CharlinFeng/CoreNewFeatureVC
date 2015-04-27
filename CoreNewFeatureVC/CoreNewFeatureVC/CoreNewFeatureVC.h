@@ -19,7 +19,7 @@
 /*
  *  初始化
  */
-+(instancetype)newFeatureVCWithModels:(NSArray *)models;
++(instancetype)newFeatureVCWithModels:(NSArray *)models enterBlock:(void(^)())enterBlock;
 
 
 
