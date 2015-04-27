@@ -10,7 +10,11 @@
 #import "UIView+Masony.h"
 #import "NewFeatureScrollView.h"
 #import "NewFeatureImageV.h"
+#import "UIApplication+Extend.h"
+#import "CoreArchive.h"
 
+
+NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
 
 @interface CoreNewFeatureVC ()
 
@@ -45,7 +49,24 @@
     
     //控制器准备
     [self vcPrepare];
+    
+    //显示了版本新特性，保存版本号
+    [self saveVersion];
 }
+
+
+/*
+ *  显示了版本新特性，保存版本号
+ */
+-(void)saveVersion{
+    
+    //系统直接读取的版本号
+    NSString *versionValueStringForSystemNow=[UIApplication sharedApplication].version;
+    
+    //保存版本号
+    [CoreArchive setStr:versionValueStringForSystemNow key:NewFeatureVersionKey];
+}
+
 
 
 /*
@@ -109,13 +130,33 @@
     tapView.userInteractionEnabled = NO;
     
     if(UIGestureRecognizerStateEnded == tap.state) [self dismiss];
-    
-    
 }
 
 -(void)dismiss{
     NSLog(@"消失");
 }
 
-
+/*
+ *  是否应该显示版本新特性页面
+ */
++(BOOL)canShowNewFeature{
+    
+    //系统直接读取的版本号
+    NSString *versionValueStringForSystemNow=[UIApplication sharedApplication].version;
+    
+    //读取本地版本号
+    NSString *versionLocal = [CoreArchive strForKey:NewFeatureVersionKey];
+    
+    if(versionLocal!=nil && [versionValueStringForSystemNow isEqualToString:versionLocal]){//说明有本地版本记录，且和当前系统版本一致
+        
+        return NO;
+        
+    }else{//无本地版本记录或本地版本记录与当前系统版本不一致
+        
+        //保存
+        [CoreArchive setStr:versionValueStringForSystemNow key:NewFeatureVersionKey];
+        
+        return YES;
+    }
+}
 @end

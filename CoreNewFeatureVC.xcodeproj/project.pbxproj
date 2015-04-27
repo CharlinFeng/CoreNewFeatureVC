@@ -28,6 +28,9 @@
 		89335FBA1AEE00CC00BC444B /* UIView+Masony.m in Sources */ = {isa = PBXBuildFile; fileRef = 89335FAF1AEE00CC00BC444B /* UIView+Masony.m */; };
 		89335FBD1AEE022C00BC444B /* NewFeatureScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89335FBC1AEE022C00BC444B /* NewFeatureScrollView.m */; };
 		89335FC01AEE057C00BC444B /* NewFeatureImageV.m in Sources */ = {isa = PBXBuildFile; fileRef = 89335FBF1AEE057C00BC444B /* NewFeatureImageV.m */; };
+		89335FC51AEE0AD200BC444B /* UIApplication+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 89335FC41AEE0AD200BC444B /* UIApplication+Extend.m */; };
+		89335FD01AEE0B8B00BC444B /* NSString+File.m in Sources */ = {isa = PBXBuildFile; fileRef = 89335FCD1AEE0B8B00BC444B /* NSString+File.m */; };
+		89335FD11AEE0B8B00BC444B /* CoreArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 89335FCF1AEE0B8B00BC444B /* CoreArchive.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +89,12 @@
 		89335FBC1AEE022C00BC444B /* NewFeatureScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFeatureScrollView.m; sourceTree = "<group>"; };
 		89335FBE1AEE057C00BC444B /* NewFeatureImageV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFeatureImageV.h; sourceTree = "<group>"; };
 		89335FBF1AEE057C00BC444B /* NewFeatureImageV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFeatureImageV.m; sourceTree = "<group>"; };
+		89335FC31AEE0AD200BC444B /* UIApplication+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Extend.h"; sourceTree = "<group>"; };
+		89335FC41AEE0AD200BC444B /* UIApplication+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Extend.m"; sourceTree = "<group>"; };
+		89335FCC1AEE0B8B00BC444B /* NSString+File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+File.h"; sourceTree = "<group>"; };
+		89335FCD1AEE0B8B00BC444B /* NSString+File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+File.m"; sourceTree = "<group>"; };
+		89335FCE1AEE0B8B00BC444B /* CoreArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreArchive.h; sourceTree = "<group>"; };
+		89335FCF1AEE0B8B00BC444B /* CoreArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreArchive.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +177,7 @@
 		89335F881AEDFF2000BC444B /* CoreNewFeatureVC */ = {
 			isa = PBXGroup;
 			children = (
+				89335FC11AEE0A9300BC444B /* Category */,
 				89335F891AEDFF2000BC444B /* Controller */,
 				89335F8A1AEDFF2000BC444B /* Model */,
 				89335F8B1AEDFF2000BC444B /* View */,
@@ -207,6 +217,7 @@
 		89335F921AEE00BF00BC444B /* FrameWorks */ = {
 			isa = PBXGroup;
 			children = (
+				89335FCA1AEE0B8B00BC444B /* CoreArchive */,
 				89335F931AEE00CC00BC444B /* Masonry */,
 			);
 			path = FrameWorks;
@@ -259,6 +270,42 @@
 				89335FAD1AEE00CC00BC444B /* View+MASShorthandAdditions.h */,
 			);
 			path = Masonry;
+			sourceTree = "<group>";
+		};
+		89335FC11AEE0A9300BC444B /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				89335FC21AEE0AD200BC444B /* UIApplication */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		89335FC21AEE0AD200BC444B /* UIApplication */ = {
+			isa = PBXGroup;
+			children = (
+				89335FC31AEE0AD200BC444B /* UIApplication+Extend.h */,
+				89335FC41AEE0AD200BC444B /* UIApplication+Extend.m */,
+			);
+			path = UIApplication;
+			sourceTree = "<group>";
+		};
+		89335FCA1AEE0B8B00BC444B /* CoreArchive */ = {
+			isa = PBXGroup;
+			children = (
+				89335FCB1AEE0B8B00BC444B /* Category */,
+				89335FCE1AEE0B8B00BC444B /* CoreArchive.h */,
+				89335FCF1AEE0B8B00BC444B /* CoreArchive.m */,
+			);
+			path = CoreArchive;
+			sourceTree = "<group>";
+		};
+		89335FCB1AEE0B8B00BC444B /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				89335FCC1AEE0B8B00BC444B /* NSString+File.h */,
+				89335FCD1AEE0B8B00BC444B /* NSString+File.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,9 +422,12 @@
 				89335FB31AEE00CC00BC444B /* MASConstraintMaker.m in Sources */,
 				89335FB71AEE00CC00BC444B /* NSArray+MASAdditions.m in Sources */,
 				89335FC01AEE057C00BC444B /* NewFeatureImageV.m in Sources */,
+				89335FD01AEE0B8B00BC444B /* NSString+File.m in Sources */,
 				89335FB21AEE00CC00BC444B /* MASConstraint.m in Sources */,
+				89335FD11AEE0B8B00BC444B /* CoreArchive.m in Sources */,
 				89335FB41AEE00CC00BC444B /* MASLayoutConstraint.m in Sources */,
 				89335F651AEDFEE800BC444B /* main.m in Sources */,
+				89335FC51AEE0AD200BC444B /* UIApplication+Extend.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +626,7 @@
 				89335F841AEDFEE800BC444B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		89335F851AEDFEE800BC444B /* Build configuration list for PBXNativeTarget "CoreNewFeatureVCTests" */ = {
 			isa = XCConfigurationList;
@@ -584,6 +635,7 @@
 				89335F871AEDFEE800BC444B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

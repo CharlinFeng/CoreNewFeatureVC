@@ -20,14 +20,24 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+
     self.window = window;
-    NewFeatureModel *m1 = [NewFeatureModel model:[UIImage imageNamed:@"f1"]];
     
-    NewFeatureModel *m2 = [NewFeatureModel model:[UIImage imageNamed:@"f2"]];
+    if([CoreNewFeatureVC canShowNewFeature]){
+        NewFeatureModel *m1 = [NewFeatureModel model:[UIImage imageNamed:@"f1"]];
+        
+        NewFeatureModel *m2 = [NewFeatureModel model:[UIImage imageNamed:@"f2"]];
+        
+        NewFeatureModel *m3 = [NewFeatureModel model:[UIImage imageNamed:@"f3"]];
+        
+        window.rootViewController = [CoreNewFeatureVC newFeatureVCWithModels:@[m1,m2,m3]];
+    }else{
+        UIViewController *vc = [[UIViewController alloc] init];
+        vc.view.backgroundColor = [UIColor brownColor];
+        window.rootViewController = vc;
+    }
     
-    NewFeatureModel *m3 = [NewFeatureModel model:[UIImage imageNamed:@"f3"]];
-    
-    window.rootViewController = [CoreNewFeatureVC newFeatureVCWithModels:@[m1,m2,m3]];
+
 
     [window makeKeyAndVisible];
     
