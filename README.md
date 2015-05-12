@@ -6,6 +6,10 @@
 ####CoreNewFeatureVC
 版本新特性
 
+<br /><br />
+#### 示例截图
+![image](./CoreNewFeatureVC/1.gif)<br />
+<br /><br />
 
 <br /><br />
 #### 友情提示 MENTION<br />
