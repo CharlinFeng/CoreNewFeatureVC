@@ -8,6 +8,14 @@
 
 
 <br /><br />
+#### 友情提示 MENTION<br />
+Charlin（成都）更多原创项目（涵盖了方方面面，看看还有没有你需要的）：<br />
+首页：https://github.com/nsdictionary<br />
+列表：https://github.com/nsdictionary?tab=repositories<br />
+成都iOS开发群：163865401（Charlin创建与维护，欢迎加群交流！）<br />
+
+
+<br /><br />
 ####框架特性：<br />
 >1.封装并简化了版本新特性启动视图！<br />
 >2.添加了版本的本地缓存功能<br />
