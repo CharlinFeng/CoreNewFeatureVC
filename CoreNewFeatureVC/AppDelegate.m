@@ -9,6 +9,7 @@
 
 #import "AppDelegate.h"
 #import "CoreNewFeatureVC.h"
+#import "CALayer+Transition.h"
 
 @interface AppDelegate ()
 
@@ -59,6 +60,7 @@
     UIViewController *vc = [[UIViewController alloc] init];
     vc.view.backgroundColor = [UIColor brownColor];
     self.window.rootViewController = vc;
+    [self.window.layer transitionWithAnimType:TransitionAnimTypeRamdom subType:TransitionSubtypesFromRamdom curve:TransitionCurveRamdom duration:2.0f];
 }
 
 
