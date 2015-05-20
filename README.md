@@ -7,7 +7,7 @@
 版本新特性
 
 <br /><br />
-#### 全新照片浏览器，请参见
+#### 全新照片浏览器，请参见（支持我，请star，follow）
 https://github.com/nsdictionary/CorePhotoBroswerVC
 
 <br /><br />
