@@ -7,6 +7,10 @@
 版本新特性
 
 <br /><br />
+#### 全新照片浏览器，请参见
+https://github.com/nsdictionary/CorePhotoBroswerVC
+
+<br /><br />
 #### 示例截图
 ![image](./CoreNewFeatureVC/1.gif)<br />
 <br /><br />
