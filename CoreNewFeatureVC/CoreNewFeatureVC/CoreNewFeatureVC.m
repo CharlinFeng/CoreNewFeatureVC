@@ -7,11 +7,10 @@
 //
 
 #import "CoreNewFeatureVC.h"
-#import "UIView+Masony.h"
 #import "NewFeatureScrollView.h"
 #import "NewFeatureImageV.h"
 #import "UIApplication+Extend.h"
-#import "CoreArchive.h"
+#import "UIView+NFLayout.h"
 
 
 NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
@@ -68,7 +67,7 @@ NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
     NSString *versionValueStringForSystemNow=[UIApplication sharedApplication].version;
     
     //保存版本号
-    [CoreArchive setStr:versionValueStringForSystemNow key:NewFeatureVersionKey];
+    [[NSUserDefaults standardUserDefaults] setObject:versionValueStringForSystemNow forKey:NewFeatureVersionKey];
 }
 
 
@@ -87,7 +86,7 @@ NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
     [self.view addSubview:scrollView];
     
     //添加约束
-    [scrollView masViewAddConstraintMakeEqualSuperViewWithInsets:UIEdgeInsetsZero];
+    [scrollView autoLayoutFillSuperView];
     
     //添加图片
     [self imageViewsPrepare];
@@ -150,7 +149,7 @@ NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
     NSString *versionValueStringForSystemNow=[UIApplication sharedApplication].version;
     
     //读取本地版本号
-    NSString *versionLocal = [CoreArchive strForKey:NewFeatureVersionKey];
+    NSString *versionLocal = [[NSUserDefaults standardUserDefaults] objectForKey:NewFeatureVersionKey];
     
     if(versionLocal!=nil && [versionValueStringForSystemNow isEqualToString:versionLocal]){//说明有本地版本记录，且和当前系统版本一致
         
@@ -159,7 +158,7 @@ NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
     }else{//无本地版本记录或本地版本记录与当前系统版本不一致
         
         //保存
-        [CoreArchive setStr:versionValueStringForSystemNow key:NewFeatureVersionKey];
+        [[NSUserDefaults standardUserDefaults] setObject:versionValueStringForSystemNow forKey:NewFeatureVersionKey];
         
         return YES;
     }
