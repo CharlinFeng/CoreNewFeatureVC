@@ -117,6 +117,12 @@ NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
             
             //添加手势
             [imageV addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureAction:)]];
+            
+            UISwipeGestureRecognizer *sgr = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
+            sgr.direction = UISwipeGestureRecognizerDirectionLeft;
+            sgr.numberOfTouchesRequired = 1;
+            [imageV addGestureRecognizer:sgr];
+            
         }
         
         [_scrollView addSubview:imageV];
